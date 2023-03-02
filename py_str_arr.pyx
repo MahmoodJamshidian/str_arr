@@ -16,16 +16,16 @@ cdef class StrArray:
     cdef py_str_arr arr
     def __init__(self):
         pass
-    def __setitem__(self, _i, _val):
+    def __setitem__(self, int _i, str _val):
         if(_i < 0):
             _i = len(self) - (_i * -1)
-        self.arr.set(_i, _val)
-    def __getitem__(self, _i):
+        self.arr.set(_i, _val.encode())
+    def __getitem__(self, int _i):
         if(_i < 0):
             _i = len(self) - (_i * -1)
         cdef result res = self.arr.get(_i)
-        return res.data[:res.len]
-    def append(self, _val):
-        self.arr.append(_val)
+        return res.data[:res.len].decode()
+    def append(self, str _val):
+        self.arr.append(_val.encode())
     def __len__(self):
         return self.arr.lenght()
