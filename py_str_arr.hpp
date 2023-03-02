@@ -19,7 +19,7 @@ class py_str_arr: public str_arr
         }
     }
 
-    void set(size_t _i, const char *_val)
+    void set(size_t _i, char *_val)
     {
         try
         {

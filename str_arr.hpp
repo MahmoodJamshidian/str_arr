@@ -51,7 +51,7 @@ class str_arr
     }
     const char *operator[](size_t _i) const { return get(_i); }
 
-    void set(size_t _i, const char *_val)
+    void set(size_t _i, char *_val)
     {
         size_t _data_ind = 0, _res_ind = 0, _ind = 0;
         for(; _ind < _ptr; _ind++)

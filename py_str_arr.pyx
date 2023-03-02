@@ -5,7 +5,7 @@ cdef extern from "py_str_arr.hpp":
         void append(char *)
         const char *get(size_t) const
         const char *operator[](size_t) const
-        void set(size_t _i, const char *)
+        void set(size_t _i, char *)
         size_t lenght() const
 
 
