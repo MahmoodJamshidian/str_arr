@@ -17,8 +17,12 @@ cdef class StrArray:
     def __init__(self):
         pass
     def __setitem__(self, _i, _val):
+        if(_i < 0):
+            _i = len(self) - (_i * -1)
         self.arr.set(_i, _val)
     def __getitem__(self, _i):
+        if(_i < 0):
+            _i = len(self) - (_i * -1)
         cdef result res = self.arr.get(_i)
         return res.data[:res.len]
     def append(self, _val):
