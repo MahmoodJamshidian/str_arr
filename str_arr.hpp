@@ -103,4 +103,16 @@ class str_arr
         }
         return _data_ind;
     }
+
+    size_t index(char *_val) const
+    {
+        for(size_t _i = 0; _i < this->lenght(); _i++)
+        {
+            if(strcmp(static_cast<const char *>(_val), static_cast<const char *>(this->get(_i))) == 0)
+            {
+                return _i;
+            }
+        }
+        throw std::runtime_error("not found");
+    }
 };
