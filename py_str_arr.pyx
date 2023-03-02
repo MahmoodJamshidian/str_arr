@@ -10,6 +10,7 @@ cdef extern from "str_arr.hpp":
         size_t lenght() const
         size_t index(char *) except +ValueError
         vector[size_t] index_all(char *) const
+        void pop(size_t) except +IndexError
 
 
 cdef class StrArray:
@@ -32,3 +33,7 @@ cdef class StrArray:
         return self.arr.index(_val.encode())
     def index_all(self, str _val):
         return list(self.arr.index_all(_val.encode()))
+    def pop(self, int _i):
+        if(_i < 0):
+            _i = len(self) - (_i * -1)
+        self.arr.pop(_i)

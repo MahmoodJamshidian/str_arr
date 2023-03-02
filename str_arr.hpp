@@ -129,4 +129,30 @@ class str_arr
         }
         return res;
     }
+
+    void pop(size_t _i)
+    {
+        size_t _data_ind = 0, _res_ind = 0, _ind = 0, _ind2 = 0, _space = 0;
+        for(; _ind < _ptr; _ind++)
+        {
+            if(_data[_ind] == 0){
+                _data_ind++;
+                continue;
+            }
+            if(_data_ind == _i)
+            {
+                for(_ind2 = _ind; _ind2 < _ptr; _ind2++, _space++)
+                    if(_data[_ind2] == 0)
+                        break;
+                _ind2++;
+                for(; _ind < _ptr; _ind++, _ind2++)
+                    _data[_ind] = _data[_ind2];
+                _data[_ind+1] = _data[_ind2+1];
+                _ptr -= _space+1;
+                _data = (char *)realloc(_data, _ptr);
+                return;
+            }
+        }
+        throw std::runtime_error("index out of range");
+    }
 };
