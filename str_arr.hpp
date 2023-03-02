@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include <string.h>
-#include <iostream>
 #include <stdexcept>
 #include <vector>
 
@@ -10,6 +9,14 @@ class str_arr
     size_t _ptr = 0;
     public:
     str_arr(){}
+    ~str_arr()
+    {
+        free(_data);
+    }
+    void _destruct()
+    {
+        this->~str_arr();
+    }
     void append(char *_val)
     {
         _data = (char *)realloc(_data, _ptr+strlen(_val)+1);

@@ -4,6 +4,7 @@ import warnings
 cdef extern from "str_arr.hpp":
     cdef cppclass str_arr:
         str_arr()
+        void _destruct()
         void append(char *)
         const char *get(size_t) except +IndexError const
         const char *operator[](size_t) except +IndexError const
@@ -47,6 +48,10 @@ cdef class StrArray:
         self.arr.pop(_i)
     def __iter__(self):
         return StrArrayIterator(self)
+    def __delitem__(self, int _i):
+        self.arr.pop(_i)
+    def __del__(self):
+        self.arr._destruct()
 
 cdef class StrArrayIterator:
     cdef size_t _index
