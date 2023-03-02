@@ -46,6 +46,7 @@ class str_arr
         {
             throw std::runtime_error("index out of range");
         }
+        _res[len] = 0x0;
         return _res;
     }
     char *operator[](size_t _i) const { return get(_i); }
