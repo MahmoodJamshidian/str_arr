@@ -19,7 +19,7 @@ class str_arr
         _data[_ptr++] = 0;
     }
 
-    char *get(size_t _i) const
+    const char *get(size_t _i) const
     {
         static char *_res;
         _res = (char *)malloc(1);
@@ -49,7 +49,7 @@ class str_arr
         _res[len] = 0x0;
         return _res;
     }
-    char *operator[](size_t _i) const { return get(_i); }
+    const char *operator[](size_t _i) const { return get(_i); }
 
     void set(size_t _i, const char *_val)
     {
