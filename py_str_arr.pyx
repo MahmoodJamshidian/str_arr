@@ -45,3 +45,18 @@ cdef class StrArray:
         if(_i < 0):
             _i = len(self) - (_i * -1)
         self.arr.pop(_i)
+    def __iter__(self):
+        return StrArrayIterator(self)
+
+cdef class StrArrayIterator:
+    cdef size_t _index
+    cdef StrArray _arr
+    def __init__(self, StrArray arr):
+        self._arr = arr
+        self._index = 0
+    def __next__(self):
+        self._index += 1
+        if self._index < len(self._arr):
+            return self._arr[self._index]
+        else:
+            raise StopIteration
