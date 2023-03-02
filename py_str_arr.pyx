@@ -3,7 +3,7 @@ cdef extern from "py_str_arr.hpp":
     cdef struct result:
         char *data
         size_t len
-    cdef cppclass str_arr:
+    cdef cppclass py_str_arr:
         str_arr()
         void append(char *)
         result get(size_t) const
@@ -12,7 +12,7 @@ cdef extern from "py_str_arr.hpp":
 
 
 cdef class StrArray:
-    cdef str_arr arr
+    cdef py_str_arr arr
     def __init__(self):
         pass
     def __setitem__(self, _i, _val):
