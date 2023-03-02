@@ -2,6 +2,7 @@
 #include <string.h>
 #include <iostream>
 #include <stdexcept>
+#include <vector>
 
 class str_arr
 {
@@ -114,5 +115,18 @@ class str_arr
             }
         }
         throw std::runtime_error("not found");
+    }
+
+    std::vector<size_t> index_all(char *_val) const
+    {
+        std::vector<size_t> res;
+        for(size_t _i = 0; _i < this->lenght(); _i++)
+        {
+            if(strcmp(_val, this->get(_i)) == 0)
+            {
+                res.push_back(_i);
+            }
+        }
+        return res;
     }
 };
