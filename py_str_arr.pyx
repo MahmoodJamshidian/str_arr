@@ -9,6 +9,7 @@ cdef extern from "py_str_arr.hpp":
         result get(size_t) const
         result operator[](size_t) const
         void set(size_t _i, const char *)
+        size_t lenght() const
 
 
 cdef class StrArray:
@@ -22,3 +23,5 @@ cdef class StrArray:
         return res.data[:res.len]
     def append(self, _val):
         self.arr.append(_val)
+    def __len__(self):
+        return self.arr.lenght()

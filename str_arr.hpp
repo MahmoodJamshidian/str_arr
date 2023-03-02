@@ -90,4 +90,17 @@ class str_arr
         }
         throw std::runtime_error("index out of range");
     }
+
+    size_t lenght() const
+    {
+        size_t _data_ind = 0, _ind = 0;
+        for(; _ind < _ptr; _ind++)
+        {
+            if(_data[_ind] == 0){
+                _data_ind++;
+                continue;
+            }
+        }
+        return _data_ind;
+    }
 };
