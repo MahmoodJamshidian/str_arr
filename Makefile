@@ -16,4 +16,8 @@ else
 endif
 
 clean:
+ifeq ($(OS),Windows_NT)
+	rmdir build
+else
 	rm -rf build
+endif
