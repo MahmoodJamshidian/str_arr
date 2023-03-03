@@ -64,4 +64,4 @@ $ make
 $ make clean
 ```
 
-If the operation is successful, copy and use the files py_str_arr.so or py_str_arr.pyd (based on the type of operating system) and py_str_arr.pyi in the desired project path.
+If the operation is successful, copy and use the files `py_str_arr.so` or `py_str_arr.pyd` (based on the type of operating system) and `py_str_arr.pyi` in the desired project path.
