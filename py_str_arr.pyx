@@ -61,7 +61,7 @@ cdef class StrArrayIterator:
         self._index = 0
     def __next__(self):
         self._index += 1
-        if self._index < len(self._arr):
-            return self._arr[self._index]
+        if self._index <= len(self._arr):
+            return self._arr[self._index-1]
         else:
             raise StopIteration
